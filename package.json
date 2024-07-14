@@ -1,0 +1,14 @@
+{
+  "name": "jiaoben_demo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "getws.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "ws": "^8.18.0"
+  }
+}
