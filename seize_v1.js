@@ -1,4 +1,18 @@
-function get_server_status(nodeName, nodeAddress, timeout = 2000) {
+// ==UserScript==
+// @name         空闲服务器抢占
+// @namespace    http://tampermonkey.net/
+// @version      2024-07-18
+// @description  try to take over the world!
+// @author       zchi
+// @match        http://172.18.127.68:8888/
+// @icon         https://pics5.baidu.com/feed/0bd162d9f2d3572c057f85c7c3eafd2263d0c30e.jpeg?token=15720a6eec4ed4f401fb1f044c3a6d97&s=03E25723583233A518388B9C0300C0A1
+// ==/UserScript==
+
+(function() {
+    'use strict';
+
+    // core code here...
+    function get_server_status(nodeName, nodeAddress, timeout = 2000) {
   console.log("开始获取服务器状态");
 
   return new Promise((resolve) => {
@@ -126,7 +140,7 @@ function get_server_choosed(servers_ids) {
   return res;
 }
 
-let servers = get_server_choosed(SERVER_IDS_TEST);
+let servers = get_server_choosed(SERVER_IDS);
 console.log(servers);
 let FREE_SERVER = null;
 
@@ -525,3 +539,5 @@ const intervalId = setInterval(() => {
     clearInterval(intervalId); // 满足条件后清除定时器，停止检查
   }
 }, 1000); // 每隔1秒检查一次
+
+})();

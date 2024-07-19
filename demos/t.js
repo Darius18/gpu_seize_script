@@ -28,3 +28,30 @@ let t = {
     ],
   },
 };
+
+// 创建 WebSocket 连接
+const ws = new WebSocket(
+  "ws://172.18.127.66:8066/TrainingIBTaskManageController"
+);
+
+// 连接成功时执行
+ws.onopen = function () {
+  console.log("WebSocket connected!");
+  ws.send(JSON.stringify(t));
+  console.log("Message sent:", t);
+};
+
+// 接收到消息时执行
+ws.onmessage = function (event) {
+  console.log("1111111111Received:", event.data);
+};
+
+// 连接关闭时执行
+ws.onclose = function () {
+  console.log("WebSocket disconnected!");
+};
+
+// 发生错误时执行
+ws.onerror = function (error) {
+  console.error("WebSocket Error:", error);
+};
